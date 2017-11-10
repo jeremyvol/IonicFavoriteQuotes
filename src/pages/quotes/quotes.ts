@@ -24,7 +24,7 @@ export class QuotesPage implements OnInit {
     //     this.quoteGroup = this.navParams.data;
     // Add elvis operator (?) in template to use this approach
     // }
-    onAddToFavorite(selectedQuote: Quote) {
+    onAddToFavorites(selectedQuote: Quote) {
         const alert = this.alertCtrl.create({
             title: 'Add Quote',
             //subTitle: 'Are you sure?',
@@ -45,5 +45,13 @@ export class QuotesPage implements OnInit {
         });
 
         alert.present();
+    }
+
+    onRemoveFromFavorites(quote: Quote) {
+        this.quotesService.removeQuoteToFavorites(quote);
+    }
+
+    isFavorite(quote: Quote) {
+        return this.quotesService.isQuoteFavorite(quote);
     }
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { FavoritesPage } from '../favorites/favorites';
 import { LibraryPage } from '../library/library';
 
@@ -6,7 +7,7 @@ import { LibraryPage } from '../library/library';
     selector: 'page-tabs',
     template: `
       <ion-tabs>
-        <ion-tab [root]="favoritesPage" tabTitle="Favorites" tabIcon="star"></ion-tab>
+        <ion-tab [root]="favoritesPage" tabTitle="Favorites" tabIcon="star" [tabBadge]="favoriteQuotesLength"></ion-tab>
         <ion-tab [root]="libraryPage" tabTitle="Library" tabIcon="book"></ion-tab>
       </ion-tabs>
     `
@@ -14,4 +15,12 @@ import { LibraryPage } from '../library/library';
 export class TabsPage {
     favoritesPage = FavoritesPage;
     libraryPage = LibraryPage;
+
+    //constructor(private quotesService: QuotesService) {}
+
+    //private favoriteQuotesLength: number;
+
+    // ngOnInit() {
+    //     this.favoriteQuotesLength = this.quotesService.getFavoriteQuotes().length;
+    // }
 }
